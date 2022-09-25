@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.font-size-16px-20px {
+   font-size: clamp(1rem, 0.9591rem + 0.1818vw, 1.25rem);
+}
+
+.img-size-16px-20px {
+   height: clamp(1rem, 0.9591rem + 0.1818vw, 1.25rem);
+   width: clamp(1rem, 0.9591rem + 0.1818vw, 1.25rem);
+}
