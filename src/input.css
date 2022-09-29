@@ -13,3 +13,13 @@
 .width-768px {
    width: 768px;
 }
+
+path {
+   fill: none;
+   stroke: black;
+   pointer-events: all;
+}
+
+path:hover{
+   fill:orange;
+}

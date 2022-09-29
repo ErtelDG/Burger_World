@@ -33,6 +33,7 @@ let menuPrice: number[] = [
 ];
 
 let basketMenu: string[] = [];
+let basketAmount: number[] = [];
 let basketPrice: number[] = [];
 
 //render menu list
@@ -73,6 +74,35 @@ function menuList() {
 function add(menuNameId: string, menuPriceId: number) {
    let menuNameInArray: string = menuNameId;
    let menuPriceInArray: number = menuPriceId;
-   basketMenu.push(menuNameInArray);
-   basketPrice.push(menuPriceInArray);
+
+   // check is min. one value in basketMenu
+   if (basketMenu.length == 0) {
+      basketMenu.push(menuNameInArray);
+      basketAmount.push(1);
+      basketPrice.push(menuPriceInArray);
+   } //is the add menu exists in basketMenu? yes => +1 amount
+   else if (basketMenu.findIndex(myFunctionSearchMenuInBasket) >= 0) {
+      let indexArray = basketMenu.findIndex(myFunctionSearchMenuInBasket);
+      basketAmount[indexArray]++;
+   } //is the add menu not exists, add it to the basketMenu
+   else {
+      basketMenu.push(menuNameInArray);
+      basketAmount.push(1);
+      basketPrice.push(menuPriceInArray);
+   }
+
+   // function to check is menu name in basket
+   function myFunctionSearchMenuInBasket(value: string) {
+      return value == menuNameInArray;
+   }
 }
+
+//       {
+//          console.log("notFound");
+//          basketMenu.push(menuNameInArray);
+//          let startAmount: number = 1;
+//          basketAmount.push(startAmount);
+//          basketPrice.push(menuPriceInArray);
+//       }
+//    }
+// }
