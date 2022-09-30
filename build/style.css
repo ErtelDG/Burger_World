@@ -563,7 +563,7 @@ audio,
 iframe,
 embed,
 object {
-  display: block;
+  /* display: block; */
   /* 1 */
   vertical-align: middle;
   /* 2 */
@@ -26195,8 +26195,8 @@ path {
   pointer-events: all;
 }
 
-path:hover{
-  fill:orange;
+path:hover {
+  fill: orange;
 }
 
 @media (min-width: 640px) {
