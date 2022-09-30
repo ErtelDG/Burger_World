@@ -47,7 +47,7 @@ function menuList() {
         let priceMenu = menuPrice[i];
         if (renderListMain != null) {
             renderListMain.innerHTML += `
-          <div class="m-4 p-4 border-solid border-2 relative flex h-32">
+          <div class="m-4 p-4 border-solid border-2 relative flex h-min">
                            <div class="w-8/12">
                               <p class="text-lg mb-4 font-bold id="nameMenu${i}">${nameMenu}</p>
                               <p class="mb-2">${ingredientsMenu}</p>
