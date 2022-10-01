@@ -48,11 +48,11 @@ function menuList() {
         if (renderListMain != null) {
             renderListMain.innerHTML += `
           <div class="m-4 p-4 border-solid border-2 relative flex h-min sm:flex-col sm:items-center">
-                           <div class="w-8/12 sm:text-center sm:flex sm:flex-col sm:items-center">
+                           <div class="w-8/12 sm:text-center sm:flex sm:flex-col sm:items-center sm:w-full">
                               <p class="text-lg mb-4 font-bold id="nameMenu${i}">${nameMenu}</p>
                               <p class="mb-2">${ingredientsMenu}</p>
                            </div>
-                           <div class="w-4/12 flex justify-end items-end sm:justify-center">
+                           <div class="w-4/12 flex justify-end items-end sm:justify-center sm:w-8/12">
                               <p class="text-orange-400 text-3xl font-bold sm:text-center" id="priceMenu${i}">${priceMenu.toFixed(2)} €</p>
                            </div>
                            <div onclick="add(menuName[${i}], menuPrice[${i}])" class="absolute top-0 right-0 border-b-2 border-l-2 hover:bg-orange-100"><svg
