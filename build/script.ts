@@ -76,6 +76,14 @@ function basket() {
 
    if (basket != null) {
       basket.innerHTML = " ";
+      basket.innerHTML = ` <div id="closeButtonRightTop" class="fixed top-2 right-2 hover:bg-orange-400 hidden show-button-right-top-by-responsive"
+         onclick="closeBasket100vwvh()">
+         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+            stroke="currentColor" class="w-10 h-10 border-b-2 border-4">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+         </svg>
+      </div>
+      `;
       for (let i = 0; i < basketMenu.length; i++) {
          let totalPriceOneMenu = (basketPrice[i] * basketAmount[i]).toFixed(2);
          basket.innerHTML += `
@@ -148,6 +156,16 @@ function basket() {
          </button>
       </div>
       `;
+
+      // show total in basket by responsive side
+      let responsiveBasketTotal = document.getElementById(
+         "basket-bottom-total-by-responsive"
+      );
+      if (responsiveBasketTotal != null) {
+         if (subtotal <= 0) {
+            responsiveBasketTotal.innerHTML = "0.00 €";
+         } else responsiveBasketTotal.innerHTML = `${total.toFixed(2)} €`;
+      }
    }
 
    if (basketMenu.length <= 0) {
@@ -170,7 +188,9 @@ function basket() {
       </div>
       `;
       }
+      closeBasket100vwvh();
    }
+   showBottomTopWhenAPositionInBasket();
 }
 
 // add a menu to the basket
@@ -216,4 +236,39 @@ function subAt1(index: number) {
 function addAt1(index: number) {
    basketAmount[index]++;
    basket();
+}
+
+function showBasket() {
+   let showBasketByResponsive = document.getElementById("right-main");
+   if (showBasketByResponsive != null) {
+      showBasketByResponsive.classList.add("show-basket-100vhvw-by-responsive");
+   }
+   let closeButtonRightTop = document.getElementById("closeButtonRightTop");
+   if (closeButtonRightTop != null) {
+      closeButtonRightTop.classList.add("show-button-right-top-by-responsive");
+   }
+}
+
+function closeBasket100vwvh() {
+   let showBasketByResponsive = document.getElementById("right-main");
+   if (showBasketByResponsive != null) {
+      showBasketByResponsive.classList.remove(
+         "show-basket-100vhvw-by-responsive"
+      );
+   }
+}
+
+function showBottomTopWhenAPositionInBasket() {
+   let showBottomTopWhenAPositionInBasket = document.getElementById(
+      "showBottomTopWhenAPositionInBasket"
+   );
+   if (basketMenu.length <= 0) {
+      if (showBottomTopWhenAPositionInBasket != null) {
+         showBottomTopWhenAPositionInBasket.classList.add("hidden");
+      }
+   } else {
+      if (showBottomTopWhenAPositionInBasket != null) {
+         showBottomTopWhenAPositionInBasket.classList.remove("hidden");
+      }
+   }
 }
