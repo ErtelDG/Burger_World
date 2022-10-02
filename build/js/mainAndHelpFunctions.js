@@ -1,4 +1,15 @@
 "use strict";
+//-----MAIN FUNCTIONS HERE----
+function renderMenuesForMenuCard(renderListMain) {
+    for (let i = 0; i < menuName.length; i++) {
+        let nameMenu = menuName[i];
+        let ingredientsMenu = menuIngredients[i];
+        let priceMenu = menuPrice[i];
+        if (renderListMain != null) {
+            renderListMain.innerHTML += renderMenuListTemplate(i, nameMenu, ingredientsMenu, priceMenu);
+        }
+    }
+}
 //-------HELP FUNCTION START HERE FOR MAIN FUNCTIONS UP TO DOWN-------------
 // -----add a menu to the basket-----
 function add(menuNameId, menuPriceId) {

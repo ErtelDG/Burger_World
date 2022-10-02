@@ -1,3 +1,20 @@
+//-----MAIN FUNCTIONS HERE----
+function renderMenuesForMenuCard(renderListMain: { innerHTML: string; } | null) {
+   for (let i = 0; i < menuName.length; i++) {
+      let nameMenu: string = menuName[i];
+      let ingredientsMenu: string = menuIngredients[i];
+      let priceMenu: number = menuPrice[i];
+      if (renderListMain != null) {
+         renderListMain.innerHTML += renderMenuListTemplate(
+            i,
+            nameMenu,
+            ingredientsMenu,
+            priceMenu
+         );
+      }
+   }
+}
+
 //-------HELP FUNCTION START HERE FOR MAIN FUNCTIONS UP TO DOWN-------------
 
 // -----add a menu to the basket-----
