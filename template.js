@@ -83,7 +83,7 @@ function renderSubtotalAndGrandTotalTemplate(subtotal, shippingCost, total) {
             <p>Gesamt</p>
             <p>${total.toFixed(2)} €</p>
          </div>
-         <button class="bg-gray-200 hover:bg-gray-300 w-full font-bold my-4 py-2 px-4 rounded-full" onclick="alert('Fake order triggered')">
+         <button class="bg-gray-200 hover:bg-gray-300 w-full font-bold my-4 py-2 px-4 rounded-full">
             Bezahlen (${total.toFixed(2)} €)
          </button>
       </div>
