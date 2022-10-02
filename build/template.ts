@@ -81,7 +81,11 @@ function HowMuchIsMissingForFreeDeliveryTemplate(subtotal: number) {
 }
 
 // render subtotal and grand total
-function renderSubtotalAndGrandTotalTemplate(subtotal:number, shippingCost:number, total:number) {
+function renderSubtotalAndGrandTotalTemplate(
+   subtotal: number,
+   shippingCost: number,
+   total: number
+) {
    return `
       <div class="text-base text-center p-2 my-2">
          <div class="flex justify-between">
@@ -96,14 +100,14 @@ function renderSubtotalAndGrandTotalTemplate(subtotal:number, shippingCost:numbe
             <p>Gesamt</p>
             <p>${total.toFixed(2)} €</p>
          </div>
-         <button class="bg-gray-200 hover:bg-gray-300 w-full font-bold my-4 py-2 px-4 rounded-full">
+         <button class="bg-gray-200 hover:bg-gray-300 w-full font-bold my-4 py-2 px-4 rounded-full" onclick="alert('Fake order triggered')">
             Bezahlen (${total.toFixed(2)} €)
          </button>
       </div>
       `;
 }
 
-function renderNoteShoppingBasketIsEmptyTemplate(){
+function renderNoteShoppingBasketIsEmptyTemplate() {
    return `
       <div class="p-2 text-sm">
          <div class="text-center border-2 py-4">
