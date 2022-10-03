@@ -1,9 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 
-const colors = require("tailwindcss/colors");
+const colors = require("./node_modules/tailwindcss");
 
 module.exports = {
-   content: ["./src/**/*.{html,js}"],
+   content: ["./pages/**/*.{html,js}", "./components/**/*.{html,js}"],
    theme: {
       colors: {
          transparent: "transparent",

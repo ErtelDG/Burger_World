@@ -8,11 +8,11 @@ function renderMenuListTemplate(i, nameMenu, ingredientsMenu, priceMenu) {
             <p class="mb-2">${ingredientsMenu}</p>
          </div>
          <div class="w-4/12 flex justify-end items-end sm:justify-center sm:w-8/12">
-            <p class="text-orange-400 text-3xl font-bold sm:text-center" id="priceMenu${i}">
+            <p class="text-orange-400 text-xl font-bold sm:text-center" id="priceMenu${i}">
                ${priceMenu.toFixed(2)} €
             </p>
          </div>
-         <div onclick="add(menuName[${i}], menuPrice[${i}])" class="absolute top-0 right-0 border-b-2 border-l-2 hover:bg-orange-100"><svg
+         <div onclick="add(menuName[${i}], menuPrice[${i}])" class="absolute top-0 right-0 hover:bg-orange-100 cursor-pointer"><svg
                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                stroke="currentColor" class="w-8 h-8">
                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
@@ -23,8 +23,8 @@ function renderMenuListTemplate(i, nameMenu, ingredientsMenu, priceMenu) {
 // function to render close "X" button when side is responsive and it was need
 function renderCloseXButtonByResponiseTemplate() {
     return `
-   <div id="closeButtonRightTop" class="fixed top-2 right-2 hover:bg-orange-400 hidden show-button-right-top-by-responsive" onclick="closeBasket100vwvh()">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-10 h-10 border-b-2 border-4">
+   <div id="closeButtonRightTop" class="fixed top-2 right-2 hover:bg-orange-400 hidden show-button-right-top-by-responsive cursor-pointer" onclick="closeBasket100vwvh()">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-10 h-10">
          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
       </svg>
    </div>
@@ -33,23 +33,21 @@ function renderCloseXButtonByResponiseTemplate() {
 // render menues where are in the basket
 function renderMenuesWhereAreInTheBasketTemplate(basketAmount, basketMenu, totalPriceOneMenu, i) {
     return `
-      <div class="p-2 text-sm border-2 my-2">
+      <div class="p-2 text-sm my-2">
          <div class="grid grid-cols-8">
             <p class="font-bold col-span-1}">${basketAmount[i]}</p>
             <p class="font-bold col-span-5">${basketMenu[i]}</p>
             <p class="col-span-2 text-right font-semibold">${totalPriceOneMenu}€</p>
          </div>
          <div class="pt-4 grid-cols-8 flex justify-end">
-            <p  onclick="subAt1(${i})"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                  stroke="currentColor" class="w-8 h-8">
-                  <path stroke-linecap="round" stroke-linejoin="round"
-                     d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            <p class="cursor-pointer hover:bg-orange-400 border-2 border-black mr-1" onclick="subAt1(${i})">
+               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 26" stroke-width="1.5" stroke="currentColor" class="w-5 h-4">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M18 12H6" />
                </svg>
             </p>
-            <p onclick="addAt1(${i})"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                  stroke="currentColor" class="w-8 h-8">
-                  <path stroke-linecap="round" stroke-linejoin="round"
-                     d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            <p class="cursor-pointer hover:bg-orange-400 border-2 border-black" onclick="addAt1(${i})">
+               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 26" stroke-width="1.5" stroke="currentColor" class="w-5 h-4">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                </svg>
             </p>
          </div>
@@ -83,7 +81,9 @@ function renderSubtotalAndGrandTotalTemplate(subtotal, shippingCost, total) {
             <p>Gesamt</p>
             <p>${total.toFixed(2)} €</p>
          </div>
-         <button class="bg-gray-200 hover:bg-gray-300 w-full font-bold my-4 py-2 px-4 rounded-full" onclick="alert('Fake order triggered')">
+      </div>
+      <div>
+         <button class="bg-gray-200 hover:bg-gray-300 w-full font-bold my-4 py-2 px-4" onclick="alert('Fake order triggered')">
             Bezahlen (${total.toFixed(2)} €)
          </button>
       </div>
